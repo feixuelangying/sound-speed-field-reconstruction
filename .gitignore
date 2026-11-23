@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+/data/
+/results/
+/weights/*
+!/weights/exp3/
+/weights/exp3/*
+!/weights/exp3/meanet_final.pt
+!/weights/exp3/meanet_final.json
+/logs/
+/figures/

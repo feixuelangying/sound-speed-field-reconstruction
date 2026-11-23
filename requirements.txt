@@ -1,0 +1,8 @@
+numpy>=2,<2.3
+scipy==1.13.1
+pandas==2.2.2
+netCDF4==1.7.2
+torch==2.7.1
+gsw==3.6.23
+seawater==3.3.5
+scikit-learn==1.5.1
