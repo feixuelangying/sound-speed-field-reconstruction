@@ -9,26 +9,13 @@ Source code for reconstructing a four-dimensional ocean sound-speed field from s
 
 Python 3.12 is recommended. Install the experiment dependencies with `python -m pip install -r requirements.txt`. The original runs used Python 3.12.3 and PyTorch 2.7.1 with CUDA 11.8. The scripts select CUDA when available. The requirements use a NumPy range compatible with the declared dependency of GSW 3.6.23. The original archived NumPy version was 1.26.4.
 
-## Input layout
-
-Place user-supplied inputs in the following paths relative to the repository root. The input data and derived results are distributed separately.
-
-| Path | Expected input |
-| --- | --- |
-| `data/hycom_TS.nc` | Study subset of HYCOM with temperature, salinity, time, depth, latitude, and longitude |
-| `data/Argo/argo_hits_in_box.csv` | Ordered profile index with `file`, `date`, `latitude`, `longitude`, `profiler_type`, and `wmo` columns |
-| `data/Argo/profiles/` | Argo single-profile NetCDF files referenced by the index |
-| `data/CTD/master_ctd_box.nc` | Station-by-depth CTD reference dataset |
-
-Use the same source releases, ordered profile index, and study subsets for comparison with the reported results. Rebuilding with different inputs will change the scene split and downstream results.
-
 ## Released checkpoint
 
 `weights/exp3/meanet_final.pt` is the trained residual mean network used in the archived experiments. Its companion `meanet_final.json` provides the architecture, input feature selection, and normalization configuration. Keep the two files together. Running EXP-3 retrains the network and overwrites this local pair, so use a separate working copy if you want to preserve the released checkpoint while retraining.
 
 ## Experiment entry points
 
-Run from the repository root. The commands below use a Windows PowerShell shell for environment-variable assignment.
+The experiments require study data. This repository includes the code and trained checkpoint only. Run the commands from the repository root using Windows PowerShell.
 
 ```powershell
 python -m exp.exp0_pipeline
